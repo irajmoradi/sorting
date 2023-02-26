@@ -185,3 +185,28 @@ def quick_sort(xs, cmp=cmp_standard):
     You should directly modify the input xs
     variable instead of returning a copy of the list.
     '''
+
+    def _quicksort(lo, hi):
+        if lo >= hi or lo < 0:
+            return 
+        p = _partition(lo, hi)
+        _quicksort(lo, p - 1)
+        _quicksort(p + 1, hi)
+
+    def _partition(lo, hi):
+        i = lo - 1
+        pivot = xs[hi]
+        for j in range(lo, hi):
+            if cmp(xs[j], pivot) != 1:
+                i = i + 1
+                xs[i], xs[j] = xs[j], xs[i]
+        i = i + 1
+        xs[i], xs[hi] = xs[hi], xs[i]
+        return i
+
+
+
+    _quicksort(0, len(xs) - 1)
+    return xs
+
+   
