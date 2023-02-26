@@ -188,7 +188,7 @@ def quick_sort(xs, cmp=cmp_standard):
 
     def _quicksort(lo, hi):
         if lo >= hi or lo < 0:
-            return 
+            return
         p = _partition(lo, hi)
         _quicksort(lo, p - 1)
         _quicksort(p + 1, hi)
@@ -203,10 +203,5 @@ def quick_sort(xs, cmp=cmp_standard):
         i = i + 1
         xs[i], xs[hi] = xs[hi], xs[i]
         return i
-
-
-
     _quicksort(0, len(xs) - 1)
     return xs
-
-   
